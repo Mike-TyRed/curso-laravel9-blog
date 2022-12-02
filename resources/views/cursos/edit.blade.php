@@ -1,10 +1,10 @@
 @extends('layouts.template')
 
-@section('title', 'Cursos create')
+@section('title', 'Cursos edit')
 
 @section('content')
     <h1>Pagina para crear un curso</h1>
-    <form action="{{route('cursos.store')}}" method="POST">
+    <form action="{{route('cursos.edit')}}" method="POST">
 
         @csrf
 

@@ -7,7 +7,8 @@
     <p> <strong>Categoria: </strong>{{$curso->category}}</p>
     <p> {{$curso->description}}</p>
 
-    <a href="{{ route('cursos.edit')}}">Editar curso</a>
     <br>
     <a href="{{ route('cursos.index') }}"> Volver a cursos </a>
+    <br>
+    <a href="{{ route('cursos.edit', $curso)}}">Editar curso</a>
 @endsection
