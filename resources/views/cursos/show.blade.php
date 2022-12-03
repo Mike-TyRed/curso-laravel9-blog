@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Cursos show' . $curso->name)
+@section('title', 'Cursos show ' . $curso->name)
 
 @section('content')
     <h1>Bienvenido al curso: {{$curso->name}}</h1>

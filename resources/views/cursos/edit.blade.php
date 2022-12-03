@@ -4,9 +4,11 @@
 
 @section('content')
     <h1>Pagina para crear un curso</h1>
-    <form action="{{route('cursos.store')}}" method="POST">
+    <form action="{{route('cursos.update', $curso)}}" method="POST">
 
         @csrf
+
+        @method('PUT')
 
         <label>
             Nombre:
@@ -26,6 +28,8 @@
             <input type="text" name="category" value="{{$curso->category}}">
         </label>
         <br>
-        <button type="submit">Enviar</button>
+        <button type="submit">Actualizar</button>
+        <br>
+        <a href="{{ route('cursos.show', $curso)}}">Cancelar</a>
     </form>
 @endsection
