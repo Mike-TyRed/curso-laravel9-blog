@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     use HasFactory;
+    //Debemos registrar los campos requeridos
+    //protected $fillable = ['name', 'description', 'category'];
+
+    //Debemos color los campos permitidos ignorando los requeridos
+    protected $guarded = ['status'];
 }

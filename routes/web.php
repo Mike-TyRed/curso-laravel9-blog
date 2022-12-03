@@ -18,7 +18,7 @@ use App\Http\Controllers\CursoController;
 Route::get('/', HomeController::class);
 
 //Grupo de rutas
-Route::controller(CursoController::class)->group(function () {
+/* Route::controller(CursoController::class)->group(function () {
     Route::get('cursos', 'index')->name('cursos.index');
     Route::get('cursos/create', 'create')->name('cursos.create');
     //Ruta para crear un curso
@@ -27,8 +27,11 @@ Route::controller(CursoController::class)->group(function () {
     //Ruta para editar un curso
     Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');    
     Route::put('cursos/{curso}', 'update')->name('cursos.update');
-});
+    //Eliminar registros
+    Route::delete('cursos/{curso}', 'destroy')->name('cursos.destroy');
+}); */
 
+//Cambiar titulos de la url sin cambiar las rutas oficiales dentro del codigo
+//Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
 
-
-//Ruta para editar un curso
+Route::resource('cursos', CursoController::class);

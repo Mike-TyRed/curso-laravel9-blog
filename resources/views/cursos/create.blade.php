@@ -49,5 +49,7 @@
 
         <br>
         <button type="submit">Enviar</button>
+        <br>
+        <a href="{{ route('cursos.index')}}">Cancelar</a>
     </form>
 @endsection

@@ -25,13 +25,24 @@ class CursoController extends Controller
     //funcion para recupera los datos del formulario
     public function store(StoreCurso $request)
     {
-        $curso = new Curso();
+        //opcion 1
+        /* $curso = Curso::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'category' => $request->category,
+        ]); */
+
+        //opcion 2
+        /* $curso = new Curso();
 
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->category = $request->category;
 
-        $curso->save();
+        $curso->save(); */
+
+        //Opcion 3 crea una instancia donde almacena todo el registro hecho
+        $curso = Curso::create($request->all());
 
         //redireccionar a la lista de cursos
         return redirect()->route('cursos.show', $curso);
@@ -58,12 +69,21 @@ class CursoController extends Controller
             'category' => 'required',
         ]);
 
-        $curso->name = $request->name;
+        //Opcion 1
+        /* $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->category = $request->category;
 
-        $curso->save();
+        $curso->save(); */
+
+        //Opcion 2
+        $curso->update($request->all());
 
         return redirect()->route('cursos.show', $curso);
+    }
+
+    public function destroy(Curso $curso){
+        $curso->delete();
+        return redirect()->route('cursos.index');
     }
 }
