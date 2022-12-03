@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCurso;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
     //funcion para mostrar la pagina principal
-    public function index(){
+    public function index()
+    {
         $cursos = Curso::orderBy('id', 'desc')->paginate(); //Ordena de forma descendente por id
 
         return view('cursos.index', compact('cursos'));
     }
 
     //funcion para mostrar la pagina de crear un curso
-    public function create(){
+    public function create()
+    {
         return view('cursos.create');
     }
 
     //funcion para recupera los datos del formulario
-    public function store(Request $request){
+    public function store(StoreCurso $request)
+    {
         $curso = new Curso();
 
         $curso->name = $request->name;
@@ -34,19 +38,25 @@ class CursoController extends Controller
     }
 
     //funcion para mostrar la pagina de un curso
-    public function show(Curso $curso){
+    public function show(Curso $curso)
+    {
         return view('cursos.show', compact('curso'));
     }
 
     //Funcion para editar
-    public function edit(Curso $curso){
+    public function edit(Curso $curso)
+    {
         return view('cursos.edit', compact('curso'));
     }
 
-    public function update(Request $request, Curso $curso){
-        
-        //log del cambio realizado
-        //return $request->all();
+    public function update(Request $request, Curso $curso)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+        ]);
 
         $curso->name = $request->name;
         $curso->description = $request->description;
