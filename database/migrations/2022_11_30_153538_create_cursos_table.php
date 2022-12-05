@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            // Almacenar el nombre del curso separado por guiones.
+            $table->string('slug');
             $table->text('description');
             $table->text('category');
             $table->timestamps();

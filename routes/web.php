@@ -1,8 +1,10 @@
 <?php
 
+use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 //Grupo de rutas
 /* Route::controller(CursoController::class)->group(function () {
@@ -35,3 +37,14 @@ Route::get('/', HomeController::class);
 //Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
 
 Route::resource('cursos', CursoController::class);
+
+//Mostrar solo contenido estatico, una vista
+Route::view('us', 'us')->name('us');
+
+Route::get('contact', function(){
+    $correo = new ContactoMailable;
+
+    Mail::to('miguel.terrazas@softkitect.com')->send($correo);
+
+    return "Mensaje enviado";
+});

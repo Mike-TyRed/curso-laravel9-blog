@@ -13,4 +13,10 @@ class Curso extends Model
 
     //Debemos color los campos permitidos ignorando los requeridos
     protected $guarded = ['status'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+        
+    }
 }
