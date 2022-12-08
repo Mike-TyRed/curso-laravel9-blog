@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -19,32 +20,11 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', HomeController::class)->name('home');
 
-//Grupo de rutas
-/* Route::controller(CursoController::class)->group(function () {
-    Route::get('cursos', 'index')->name('cursos.index');
-    Route::get('cursos/create', 'create')->name('cursos.create');
-    //Ruta para crear un curso
-    Route::post('cursos', 'store')->name('cursos.store');
-    Route::get('cursos/{curso}', 'show')->name('cursos.show');
-    //Ruta para editar un curso
-    Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');    
-    Route::put('cursos/{curso}', 'update')->name('cursos.update');
-    //Eliminar registros
-    Route::delete('cursos/{curso}', 'destroy')->name('cursos.destroy');
-}); */
-
-//Cambiar titulos de la url sin cambiar las rutas oficiales dentro del codigo
-//Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
-
 Route::resource('cursos', CursoController::class);
 
 //Mostrar solo contenido estatico, una vista
 Route::view('us', 'us')->name('us');
 
-Route::get('contact', function(){
-    $correo = new ContactoMailable;
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 
-    Mail::to('miguel.terrazas@softkitect.com')->send($correo);
-
-    return "Mensaje enviado";
-});
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');

@@ -9,5 +9,9 @@
 <body>
     <h1>Email</h1>
     <p>Este es el primer correo que mandare por laravel</p>
+
+    <p><strong>Name:</strong>{{$contacto['name']}}</p>
+    <p><strong>Email:</strong>{{$contacto['email']}}</p>
+    <p><strong>Message:</strong>{{$contacto['message']}}</p>
 </body>
 </html>

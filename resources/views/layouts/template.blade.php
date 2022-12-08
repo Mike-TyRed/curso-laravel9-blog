@@ -23,7 +23,7 @@
     <!-- nav -->
     <!-- main -->
     <!-- footer -->
-    @include('layouts.partials.header')
+    @include('layouts.partials.footer')
     <!-- Scripts -->
 </body>
 </html>
