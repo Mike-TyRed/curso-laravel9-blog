@@ -72,4 +72,9 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }
+
+    //recuperar informacion de videos
+    public function videos(){
+        return $this->hasMany('App\Models\Video');
+    }
 }
