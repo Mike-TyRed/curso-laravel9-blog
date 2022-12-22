@@ -14,13 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // auto incrementing primary key
-            $table->string('name'); // varchar(255)
-            $table->string('email')->unique(); // varchar(255) with unique index
-            $table->timestamp('email_verified_at')->nullable(); // se registra la fecha en que se hizo el registro
-            $table->string('password'); // varchar(255)
-            $table->rememberToken(); // almacena token cada vez que se inicia sesión y que mantenga la sesion activa
-            $table->timestamps(); // created_at y (almacena la fecha y hora del registro) updated_at (almacena la fecha y hora de la ultima actualización)
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
+            $table->timestamps();
         });
     }
 

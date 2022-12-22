@@ -1,5 +1,5 @@
 <header>
-    <h1>Elden Ring</h1>
+    <h1 class="text-red-600">Elden Ring</h1>
     <nav>
         <ul>
             <li><a href="{{route('home')}}"         class="{{request()->routeIs('home') ? 'active' : ''}}">Home</a></li>
@@ -9,3 +9,11 @@
         </ul>
     </nav>
 </header>
+{{-- <style>
+    .Title {
+        color: brown;
+        flex-direction: row
+        justify-flex: center;
+        align-items: center;
+    } --}}
+{{-- </style> --}}
