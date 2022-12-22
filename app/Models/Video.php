@@ -13,4 +13,10 @@ class Video extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    //relacion 1 - * polimorfica
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
 }

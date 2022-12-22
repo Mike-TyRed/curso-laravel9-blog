@@ -18,4 +18,16 @@ class Post extends Model
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
+
+    //relacion 1 - 1 polimorfica
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
+    //relacion 1 - * polimorfica
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
 }
