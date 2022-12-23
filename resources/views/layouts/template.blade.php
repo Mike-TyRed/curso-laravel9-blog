@@ -9,11 +9,11 @@
     <!-- Styles -->
     <style>
         .active{
-            color: red;
+            color: goldenrod;
             font-weight: bold;
         }
     </style>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!-- header -->
