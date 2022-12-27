@@ -58,7 +58,7 @@
                 <br>
                 <button class="border-2 rounded-md indent-1 border-slate-800 mb-2 text-center w-24" type="submit">Actualizar</button>
                 <br>
-                <a class="border-2 rounded-md indent-1 border-slate-800 text-center w-20" href="{{ route('cursos.show', $curso)}}">Cancelar</a>
+                <a class="border-2 rounded-md indent-1 border-slate-800 text-center w-20"    href="{{ route('cursos.show', $curso)}}">Cancelar</a>
             </form>
         </div>
     </div>
