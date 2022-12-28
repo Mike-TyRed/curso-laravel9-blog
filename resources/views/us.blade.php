@@ -3,5 +3,7 @@
 @section('title', 'Us')
 
 @section('content')
-    <h1>About us</h1>
+    <div class="flex justify-center items-center">
+        <h1>Us</h1>
+    </div>
 @endsection

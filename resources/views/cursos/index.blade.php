@@ -18,5 +18,7 @@
             </ul>
         </div>
     </div>
-    {{ $cursos->links() }}
+    <div class="flex justify-center items-center">
+        {{ $cursos->links() }}
+    </div>
 @endsection

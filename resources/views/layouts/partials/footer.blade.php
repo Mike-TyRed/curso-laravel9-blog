@@ -1,3 +1,5 @@
 <footer>
-    Pie de pagina
+    <div class="flex justify-center items-center">
+        Pie de pagina
+    </div>
 </footer>

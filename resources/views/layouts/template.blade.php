@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,14 @@
     <!-- favicon -->
     <!-- Styles -->
     <style>
-        .active{
+        .active {
             color: goldenrod;
             font-weight: bold;
         }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
     <!-- header -->
     @include('layouts.partials.header')
@@ -26,4 +28,5 @@
     @include('layouts.partials.footer')
     <!-- Scripts -->
 </body>
+
 </html>

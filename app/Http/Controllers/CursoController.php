@@ -30,10 +30,10 @@ class CursoController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'category' => $request->category,
-        ]); */
+        ]);
 
-        //opcion 2
-        /* $curso = new Curso();
+        opcion 2
+        $curso = new Curso();
 
         $curso->name = $request->name;
         $curso->description = $request->description;
