@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCurso;
+use App\Http\Requests\StoreCursoRequest;
 use App\Models\Curso;
-use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
@@ -23,26 +22,9 @@ class CursoController extends Controller
     }
 
     //funcion para recupera los datos del formulario
-    public function store(StoreCurso $request)
+    public function store(StoreCursoRequest $request)
     {
-        //opcion 1
-        /* $curso = Curso::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'category' => $request->category,
-        ]);
-
-        opcion 2
-        $curso = new Curso();
-
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->category = $request->category;
-
-        $curso->save(); */
-
-        //Opcion 3 crea una instancia donde almacena todo el registro hecho
-        $curso = Curso::create($request->all());
+        $curso = Curso::create($request->validated());
 
         //redireccionar a la lista de cursos
         return redirect()->route('cursos.show', $curso);
@@ -60,24 +42,9 @@ class CursoController extends Controller
         return view('cursos.edit', compact('curso'));
     }
 
-    public function update(Request $request, Curso $curso)
+    public function update(StoreCursoRequest $request, Curso $curso)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'category' => 'required',
-        ]);
-
-        //Opcion 1
-        /* $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->category = $request->category;
-
-        $curso->save(); */
-
-        //Opcion 2
-        $curso->update($request->all());
+        $curso->update($request->validated());
 
         return redirect()->route('cursos.show', $curso);
     }
